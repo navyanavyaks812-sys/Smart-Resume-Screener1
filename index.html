@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Resume Screener</title>
+</head>
+<body>
+    <h2>Smart Resume Screener </h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="job_description" rows="6" cols="60"
+        placeholder="Paste Job Description Here" required></textarea>
+        <br><br>
+
+        <input type="file" name="resumes" multiple required>
+        <br><br>
+
+        <button type="submit">Screen Resumes</button>
+    </form>
+
+    {% if rankings %}
+        <h3>Ranking Results:</h3>
+        <ul>
+        {% for name, score in rankings %}
+            <li>{{ name }} - Match Score: {{ score }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
